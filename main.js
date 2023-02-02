@@ -2,7 +2,7 @@ const express=require ("express")
 const app=express()
 const mongoose=require("mongoose")
 app.use(express.json());
-mongoose.connect("your URL",{
+mongoose.connect("your",{
     useNewUrlParser:true
 },(err)=>{if(!err){
     console.log("Sucessfully Connected")
@@ -25,7 +25,7 @@ app.post("/post",async(req,res)=>{
     const data=new monmodel({
         name:req.body.name,
         email:req.body.email,
-        id:req.body.id
+        id:req.body.id,
     });
      
     const val=await data.save();
