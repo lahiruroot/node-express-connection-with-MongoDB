@@ -2,7 +2,7 @@ const express=require ("express")
 const app=express()
 const mongoose=require("mongoose")
 app.use(express.json());
-mongoose.connect("mongodb+srv://lahiruroot:lahiruroot@cluster0.ysjypt2.mongodb.net/?retryWrites=true&w=majority",{
+mongoose.connect("your URL",{
     useNewUrlParser:true
 },(err)=>{if(!err){
     console.log("Sucessfully Connected")
