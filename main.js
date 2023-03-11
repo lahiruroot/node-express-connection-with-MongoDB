@@ -2,7 +2,7 @@ const express=require ("express")
 const app=express()
 const mongoose=require("mongoose")
 app.use(express.json());
-mongoose.connect("your",{
+mongoose.connect("mongodb+srv://algoartfeed:Emo0hXjZjCHKa3K9@cluster0.usjjcof.mongodb.net/?retryWrites=true&w=majority",{
     useNewUrlParser:true
 },(err)=>{if(!err){
     console.log("Sucessfully Connected")
@@ -11,10 +11,7 @@ mongoose.connect("your",{
 }
 
 const sch={
-    name:String,
-    email:String,
-    id:Number,
-
+    name:String, 
 }
 
 const monmodel=mongoose.model("NEWCOL",sch);
@@ -24,8 +21,6 @@ app.post("/post",async(req,res)=>{
 
     const data=new monmodel({
         name:req.body.name,
-        email:req.body.email,
-        id:req.body.id,
     });
      
     const val=await data.save();
@@ -33,6 +28,4 @@ app.post("/post",async(req,res)=>{
 })
 
 app.listen(3000,()=>{console.log("on port 3000")})
-
-
 })
